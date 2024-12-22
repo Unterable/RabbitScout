@@ -18,6 +18,11 @@ RUN npm run build
 # Production stage
 FROM node:18-alpine AS runner
 
+LABEL org.opencontainers.image.source="https://github.com/Ralve-org/RabbitScout" \
+      org.opencontainers.image.description="Modern, intuitive dashboard for RabbitMQ management" \
+      org.opencontainers.image.licenses="MIT" \
+      org.opencontainers.image.vendor="Ralve-org"
+
 WORKDIR /app
 
 # Set environment variables
