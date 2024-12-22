@@ -1,0 +1,12 @@
+services:
+  rabbitscout:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      - NEXT_PUBLIC_RABBITMQ_HOST
+      - NEXT_PUBLIC_RABBITMQ_PORT
+      - NEXT_PUBLIC_RABBITMQ_VHOST
+      - RABBITMQ_USERNAME
+      - RABBITMQ_PASSWORD
+      - NEXT_PUBLIC_API_URL

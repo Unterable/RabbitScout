@@ -180,6 +180,38 @@ npm start
 yarn start
 ```
 
+### 🐳 Docker Usage
+
+You can run RabbitScout using Docker in two ways:
+
+#### Using Docker Compose
+```yaml
+services:
+  rabbitscout:
+    image: ghcr.io/ralve-org/rabbitscout:latest
+    ports:
+      - "3000:3000"
+    environment:
+      - NEXT_PUBLIC_RABBITMQ_HOST=your-rabbitmq-host
+      - NEXT_PUBLIC_RABBITMQ_PORT=15672
+      - NEXT_PUBLIC_RABBITMQ_VHOST=/
+      - RABBITMQ_USERNAME=your-username
+      - RABBITMQ_PASSWORD=your-password
+      - NEXT_PUBLIC_API_URL=http://localhost:3000
+```
+
+#### Using Docker CLI
+```bash
+docker run -p 3000:3000 \
+  -e NEXT_PUBLIC_RABBITMQ_HOST=your-rabbitmq-host \
+  -e NEXT_PUBLIC_RABBITMQ_PORT=15672 \
+  -e NEXT_PUBLIC_RABBITMQ_VHOST=/ \
+  -e RABBITMQ_USERNAME=your-username \
+  -e RABBITMQ_PASSWORD=your-password \
+  -e NEXT_PUBLIC_API_URL=http://localhost:3000 \
+  ghcr.io/ralve-org/rabbitscout:latest
+```
+
 ## 🛠️ Tech Stack
 
 - **Framework**: [Next.js 14](https://nextjs.org/)
