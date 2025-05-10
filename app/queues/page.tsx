@@ -2,7 +2,7 @@ import { Suspense } from "react"
 import { QueueList } from "@/components/queues/queue-list"
 import { QueueListSkeleton } from "@/components/queues/queue-list-skeleton"
 import { ApiError } from "@/components/common/api-error"
-import { getRabbitMQAuthHeaders, getRabbitMQBaseUrl } from "@/lib/config"
+import { getRabbitMQAuthHeaders, getRabbitMQBaseUrl, API_TIMEOUT_MS } from "@/lib/config"
 
 export const dynamic = "force-dynamic"
 export const revalidate = 0
@@ -15,6 +15,7 @@ async function QueuesPage() {
     const response = await fetch(url, {
       headers: getRabbitMQAuthHeaders(),
       cache: 'no-store',
+      signal: AbortSignal.timeout(API_TIMEOUT_MS),
     })
 
     if (!response.ok) {

@@ -1,4 +1,4 @@
-import { RABBITMQ_CONFIG } from '../../../lib/config'
+import { RABBITMQ_CONFIG, API_TIMEOUT_MS } from '../../../lib/config'
 import { NextResponse } from 'next/server'
 import { headers } from 'next/headers'
 
@@ -22,6 +22,7 @@ export async function GET(request: Request, { params }: { params: { path: string
         'Content-Type': 'application/json',
       },
       cache: 'no-store',
+      signal: AbortSignal.timeout(API_TIMEOUT_MS),
     })
 
     if (!response.ok) {
@@ -65,6 +66,7 @@ export async function POST(request: Request, { params }: { params: { path: strin
       },
       body: JSON.stringify(body),
       cache: 'no-store',
+      signal: AbortSignal.timeout(API_TIMEOUT_MS),
     })
 
     if (!response.ok) {

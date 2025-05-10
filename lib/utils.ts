@@ -1,5 +1,6 @@
 import { clsx, type ClassValue } from "clsx"
 import { twMerge } from "tailwind-merge"
+import { API_TIMEOUT_MS } from "./config"
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
@@ -507,6 +508,7 @@ export async function closeConnection(name: string) {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({ name }),
+    signal: AbortSignal.timeout(API_TIMEOUT_MS),
   })
 
   if (!response.ok) {
