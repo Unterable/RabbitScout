@@ -1,3 +1,12 @@
+<p align="center">
+para buildar basta criar seu container com: https://raw.githubusercontent.com/Unterable/RabbitScout/main/docker-compose.yml
+tudo ja esta configurado! 
+seja feliz 
+</p>
+
+
+
+
 <div align="center">
   <img src="docs/assets/logo.png" alt="RabbitScout Logo" width="80">
   <h1>Rabbit<span style="color: #f97316">Scout</span></h1>
