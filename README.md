@@ -1,8 +1,3 @@
-<p align="center">
-para buildar basta criar seu container com: https://raw.githubusercontent.com/Unterable/RabbitScout/main/docker-compose.yml
-tudo ja esta configurado! 
-seja feliz 
-</p>
 
 
 
